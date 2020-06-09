@@ -19,26 +19,12 @@ export class RegisterComponent implements OnInit {
     "subsType" : 0
   };
 
-    
-  user1 = new User(1,"Sergio","Fonseca Segura","mando@gmail.com","12345678",this.date,1)
-  user2 = new User(2,"Checho","Fonseca Segura","checho@gmail.com","12345678",this.date,2)
-  user3 = new User(3,"Armando","Fonseca Segura","armando@gmail.com","12345678",this.date,3)
-  user4 = new User(4,"Nicole","Fonseca Segura","nicole@gmail.com","12345678",this.date,4)   
-  user5 = new User(5,"Pana","Fonseca Segura","mando@gmail.com","12345678",this.date,4);
-  userlist : Array<User> = [this.user1,this.user2,this.user3,this.user4,this.user5];
-
   
   
-  constructor(private _router: Router) {
-    
+  constructor(private _router: Router) {    
    } 
 
   ngOnInit(): void {
-    this.saveData();
-  }
-
-  saveData(){
-    localStorage.setItem('users', JSON.stringify(this.userlist))
   }
 
   registerUser(){
@@ -65,16 +51,13 @@ export class RegisterComponent implements OnInit {
       this._router.navigate([`products/${newUser.idUser}`])
     }
     if(newUser.subsType === 4){
-      localStorage.setItem("subs","3");
+      localStorage.setItem("subs","4");
       this._router.navigate([`products/${newUser.idUser}`])
     }
     userlist.push(newUser)
     localStorage.setItem('users', JSON.stringify(userlist))
-    
+    localStorage.setItem('token',newUser.idUser.toString())
     console.log(userlist);
-      
-
   }
-
 
 }

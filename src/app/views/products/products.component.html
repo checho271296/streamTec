@@ -11,38 +11,15 @@
                     <div class="card-body">
                           <h5 class="card-title">Descubre la música que deseas:</h5>
                           <div class="card-group" >
-                              <div class="card pr-4" >
-                                  <img src="../../../assets/images/queen.jpg" class="card-img-top" style="width: 150px; height: 150px;" >
-                                  <div class="card-body">
-                                      <h5 class="card-title">Bohemian Rhapsody</h5>
-                                    <p class="card-text">Queen.</p>
-                                  </div>
-                                  <button type="button" class="btn btn-success">+ Lista de reproducción</button>
+                            <div class="card pr-4" style="width: 10rem;" *ngFor="let music of productListMusic">
+                              <img src="../../../assets/images/{{music.image}}" class="card-img-top" style="width: 150px; height: 150px;" >
+                              <div class="card-body">
+                                  <h5 class="card-title">{{music.name}}</h5>
+                                <p class="card-text">{{music.description}}</p>
+                                <p class="card-text">Precio: ${{music.price}}</p>
                               </div>
-                              <div class="card pr-4" style="width: 10rem;">
-                                <img src="../../../assets/images/myself.jpg" class="card-img-top" style="width: 150px; height: 150px;" >
-                                <div class="card-body">
-                                    <h5 class="card-title">Myself</h5>
-                                  <p class="card-text">Post Malone</p>
-                                </div>
-                                <button type="button" class="btn btn-success">+ Lista de reproducción</button>
-                            </div>
-                            <div class="card pr-4" style="width: 10rem;">
-                                <img src="../../../assets/images/alive.jpg" class="card-img-top" style="width: 150px; height: 150px;" >
-                                <div class="card-body">
-                                    <h5 class="card-title">Alive</h5>
-                                  <p class="card-text">Sia</p>
-                                </div>
-                                <button type="button" class="btn btn-success">+ Lista de reproducción</button>
-                            </div>
-                            <div class="card pr-4" style="width: 10rem;">
-                                <img src="../../../assets/images/rojo.png" class="card-img-top" style="width: 150px; height: 150px;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Rojo</h5>
-                                  <p class="card-text">J Balvin</p>
-                                </div>
-                                <button type="button" class="btn btn-success">+ Lista de reproducción</button>
-                            </div>    
+                                  <button type="button" class="btn btn-success">Agregar</button>
+                              </div>   
                           </div>
                     </div>
                       </div>
@@ -57,58 +34,105 @@
                         <div class="card-body">
                           <h5 class="card-title">Increíbles Peliculas para todos los gustos:</h5>
                           <div class="card-group" >
-
-                              <div class="card pr-4" style="width: 10rem;">
-                                <img src="../../../assets/images/avengers.jpg" class="card-img-top" style="width: 150px; height: 150px;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Avengers : End Game</h5>
-                                  <p class="card-text">Marvel</p>
-                                </div>
+                            <div class="card pr-4" style="width: 10rem;" *ngFor="let movie of productListMovies">
+                              <img src="../../../assets/images/{{movie.image}}" class="card-img-top" style="width: 150px; height: 150px;">
+                              <div class="card-body">
+                                  <h5 class="card-title">{{movie.name}}</h5>
+                                <p class="card-text">{{movie.description}}</p>
+                                <p class="card-text">Precio: ${{movie.price}}</p>
+                              </div>
                                 <button type="button" class="btn btn-success">+ Lista de reproducción</button>
                             </div>
-                            <div class="card pr-4" style="width: 10rem;">
-                                <img src="../../../assets/images/grownups.jpg" class="card-img-top" style="width: 150px; height: 150px;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Grown Ups</h5>
-                                  <p class="card-text">Director: Dennis DuganMarvel</p>
-                                </div>
-                                <button type="button" class="btn btn-success">+ Lista de reproducción</button>
-                            </div>
-                            <div class="card pr-4" style="width: 10rem;">
-                                <img src="../../../assets/images/titanic.jpg" class="card-img-top" style="width: 150px; height: 150px;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Titanic</h5>
-                                  <p class="card-text">Director: James Cameron</p>
-                                </div>
-                                <button type="button" class="btn btn-success">+ Lista de reproducción</button>
-                            </div>
-                            <div class="card pr-4" style="width: 10rem;">
-                                <img src="../../../assets/images/ted.jpg" class="card-img-top" style="width: 150px; height: 150px;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Ted</h5>
-                                  <p class="card-text">Director: Seth MacFarlane</p>
-                                </div>
-                                <button type="button" class="btn btn-success">+ Lista de reproducción</button>
-                            </div>
+                            
                           </div>
                         </div>
                       </div>
                 </div>
             </div>
         </div>
-        <div class="col-4 mt-5">
+        <div class="col-4 mt-5" *ngIf="videoFlag || vipFlag || musicFlag">
             <h3>Lista de reproducción:</h3>
-            <h3>Inventario:</h3>
             <div class="card" style="width: 18rem;">
               <div class="card-header">
                 Mi lista:
               </div>
               <ul class="list-group list-group-flush">
-                <a href="http://"></a><li class="list-group-item"><a href="">Rojo, J Balvin</a></li>
+                <a href="http://"></a>
+                <li class="list-group-item"><a href="">Rojo, J Balvin</a></li>
                 <li class="list-group-item"><a href="">Alive, Sia</a></li>
                 <li class="list-group-item"><a href="">Ted, La Película</a></li>
               </ul>
             </div>
         </div>
     </div>  
+</div>
+
+
+
+<div *ngIf="onDemandFlag" class="container mb-5">
+  <div class="row mt-5 d-flex justify-content-center">  
+      <div class="col-8 mt-5">
+          <div class="row" >
+              <div class="col-12">
+                  <div class="card">
+                      <div class="card-header">
+                        Música
+                      </div>
+                  <div class="card-body">
+                        <h5 class="card-title">Descubre la música que deseas:</h5>
+                        <div class="card-group" >
+                          <div class="card pr-4" style="width: 10rem;" *ngFor="let music of productListMusic">
+                            <img src="../../../assets/images/{{music.image}}" class="card-img-top" style="width: 150px; height: 150px;" >
+                            <div class="card-body">
+                                <h5 class="card-title">{{music.name}}</h5>
+                              <p class="card-text">{{music.description}}</p>
+                              <p class="card-text">Precio: ${{music.price}}</p>
+                            </div>
+                                <button type="button" class="btn btn-success">Comprar</button>
+                            </div>   
+                        </div>
+                  </div>
+                    </div>
+              </div>
+          </div>
+          <div class="row mt-5" >
+              <div class="col-12 ">
+                  <div class="card">
+                      <div class="card-header">
+                        Películas
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title">Increíbles Peliculas para todos los gustos:</h5>
+                        <div class="card-group" >
+                          <div class="card pr-4" style="width: 10rem;" *ngFor="let movie of productListMovies">
+                            <img src="../../../assets/images/{{movie.image}}" class="card-img-top" style="width: 150px; height: 150px;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{movie.name}}</h5>
+                              <p class="card-text">{{movie.description}}</p>
+                              <p class="card-text">Precio: ${{movie.price}}</p>
+                            </div>
+                              <button type="button" class="btn btn-success">Comprar</button>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-4 mt-5">
+          <h3>Inventario de compra:</h3>
+          <div class="card" style="width: 18rem;">
+            <div class="card-header">
+              Mi lista:
+            </div>
+            <ul class="list-group list-group-flush">
+              <a href="http://"></a>
+              <li class="list-group-item"><a href="">Rojo, J Balvin</a></li>
+              <li class="list-group-item"><a href="">Alive, Sia</a></li>
+              <li class="list-group-item"><a href="">Ted, La Película</a></li>
+            </ul>
+          </div>
+      </div>
+  </div>  
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Router} from '@angular/router'; 
 import { User } from 'src/app/models/user.model';
+import { stringify } from 'querystring';
 
 
 
@@ -27,8 +28,23 @@ export class LoginComponent implements OnInit {
     this.person = this.userlist.find( ({ email }) => email === this.loginUserData.email );
     if(this.person){
       if(this.person.password === this.loginUserData.password){
-        this._router.navigate([`products/${this.person.idUser}`])
-        console.log("HOLA CHECO",this.person.idUser);
+        if(this.person.subsType === 1){
+          localStorage.setItem("subs","1");
+          this._router.navigate([`products/${this.person.idUser}`])
+        }
+        if(this.person.subsType === 2){
+          localStorage.setItem("subs","2");
+          this._router.navigate([`products/${this.person.idUser}`])
+        }
+        if(this.person.subsType === 3){
+          localStorage.setItem("subs","3");
+          this._router.navigate([`products/${this.person.idUser}`])
+        }
+        if(this.person.subsType === 4){
+          localStorage.setItem("subs","4");
+          this._router.navigate([`products/${this.person  .idUser}`])
+        }
+        localStorage.setItem('token',this.person.idUser.toString())
       }else{
         console.log("Error");
       }

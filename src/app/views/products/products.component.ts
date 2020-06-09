@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-products',
@@ -11,10 +12,19 @@ export class ProductsComponent implements OnInit {
   musicFlag = false;
   videoFlag = false;
   onDemandFlag = false;
+  productListMusic : Array<Product> = [] ;
+  productListMovies : Array<Product> = [] ;
   constructor() { }
 
   ngOnInit(): void {
     this.chargeProducts();
+    this.getData();
+  }
+
+
+  getData(){
+    this.productListMovies = JSON.parse(localStorage.getItem("movies"));
+    this.productListMusic = JSON.parse(localStorage.getItem("music"));
   }
 
   chargeProducts(){

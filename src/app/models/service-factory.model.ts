@@ -7,7 +7,11 @@ import { OnDemand } from './on-demand.model';
 export class ServiceFactory {
     idUser : Number;
     subcriptionDate : Date;
-    service : Service
+    
+    constructor(idUser : number, subsDate: Date){
+       this.idUser = idUser,
+       this.subcriptionDate  = subsDate 
+    }
 
     getShape(shapeType : number,descrip : string, price : number){
         if(shapeType == null){

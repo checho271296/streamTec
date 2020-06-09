@@ -13,6 +13,9 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { UserProfileComponent } from './views/user-profile/user-profile.component';
 import { ProductsComponent } from './views/products/products.component';
+import { AuthService } from './models/auth.service';
+import { AuthGuard } from './auth.guard';
+import { CarouselComponent } from './views/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +26,15 @@ import { ProductsComponent } from './views/products/products.component';
     LoginComponent,
     RegisterComponent,
     UserProfileComponent,
-    ProductsComponent
+    ProductsComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

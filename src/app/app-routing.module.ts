@@ -5,6 +5,7 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { UserProfileComponent } from './views/user-profile/user-profile.component';
 import { ProductsComponent } from './views/products/products.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
@@ -27,11 +28,13 @@ const routes: Routes = [
   },
   {
     path : 'userProfile',
-    component : UserProfileComponent
+    component : UserProfileComponent,
+    canActivate : [AuthGuard]
   },
   {
     path: 'products/:_id',
-    component: ProductsComponent
+    component: ProductsComponent,
+    canActivate : [AuthGuard]
   }
 ];
 
