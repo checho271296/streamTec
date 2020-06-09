@@ -1,6 +1,5 @@
-import { Shop } from './shop.abstract';
 
-export class Product{
+export class Product {
     idProduct : Number;
     name : String;
     length : Number;
@@ -16,4 +15,5 @@ export class Product{
         this.price = price,
         this.type = type
     }
+
 }

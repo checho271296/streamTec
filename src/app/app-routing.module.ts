@@ -4,6 +4,7 @@ import { CatalogueComponent } from './views/catalogue/catalogue.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { UserProfileComponent } from './views/user-profile/user-profile.component';
+import { ProductsComponent } from './views/products/products.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path : 'userProfile',
     component : UserProfileComponent
+  },
+  {
+    path: 'products/:_id',
+    component: ProductsComponent
   }
 ];
 
