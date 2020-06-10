@@ -18,7 +18,7 @@
                                 <p class="card-text">{{music.description}}</p>
                                 <p class="card-text">Precio: ${{music.price}}</p>
                               </div>
-                                  <button type="button" class="btn btn-success">Agregar</button>
+                                  <button type="button" class="btn btn-success" (click)= "addtoPlaylist(music.name)">Agregar</button>
                               </div>   
                           </div>
                     </div>
@@ -41,7 +41,7 @@
                                 <p class="card-text">{{movie.description}}</p>
                                 <p class="card-text">Precio: ${{movie.price}}</p>
                               </div>
-                                <button type="button" class="btn btn-success">+ Lista de reproducción</button>
+                                <button type="button" class="btn btn-success" (click)= "addtoPlaylist(movie.name)">Agregar</button>
                             </div>
                             
                           </div>
@@ -56,11 +56,9 @@
               <div class="card-header">
                 Mi lista:
               </div>
-              <ul class="list-group list-group-flush">
+              <ul class="list-group list-group-flush" *ngFor="let product of productAdd">
                 <a href="http://"></a>
-                <li class="list-group-item"><a href="">Rojo, J Balvin</a></li>
-                <li class="list-group-item"><a href="">Alive, Sia</a></li>
-                <li class="list-group-item"><a href="">Ted, La Película</a></li>
+                <li class="list-group-item"><a href="">{{product.name}}, {{product.description}}</a></li>
               </ul>
             </div>
         </div>

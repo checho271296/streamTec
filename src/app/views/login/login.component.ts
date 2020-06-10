@@ -32,15 +32,15 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("subs","1");
           this._router.navigate([`products/${this.person.idUser}`])
         }
-        if(this.person.subsType === 2){
+        else if(this.person.subsType === 2){
           localStorage.setItem("subs","2");
           this._router.navigate([`products/${this.person.idUser}`])
         }
-        if(this.person.subsType === 3){
+        else if(this.person.subsType === 3){
           localStorage.setItem("subs","3");
           this._router.navigate([`products/${this.person.idUser}`])
         }
-        if(this.person.subsType === 4){
+        else if(this.person.subsType === 4){
           localStorage.setItem("subs","4");
           this._router.navigate([`products/${this.person  .idUser}`])
         }

@@ -15,12 +15,22 @@ export class AppComponent {
   user2 = new User(2,"Checho","Fonseca Segura","checho@gmail.com","12345678",this.date,2)
   user3 = new User(3,"Armando","Fonseca Segura","armando@gmail.com","12345678",this.date,3)
   user4 = new User(4,"Nicole","Fonseca Segura","nicole@gmail.com","12345678",this.date,4)   
-  user5 = new User(5,"Pana","Fonseca Segura","mando@gmail.com","12345678",this.date,4);
-  userlist : Array<User> = [this.user1,this.user2,this.user3,this.user4,this.user5];
+  userlist : Array<User> = [this.user1,this.user2,this.user3,this.user4];
 
+  service1 = new ServiceFactory(this.user1.idUser,this.date);
+  typeService1 = this.service1.getShape(this.user1.subsType);
+  
 
+  service2 = new ServiceFactory(this.user2.idUser,this.date);
+  typeService2 = this.service2.getShape(this.user2.subsType);
 
-  subsList: Array<ServiceFactory>;
+  service3 = new ServiceFactory(this.user3.idUser,this.date);
+  typeService3 = this.service3.getShape(this.user3.subsType);
+
+  service4 = new ServiceFactory(this.user4.idUser,this.date);
+  typeService4 = this.service4.getShape(this.user4.subsType);
+
+  subsList: Array<ServiceFactory> =[this.service1,this.service2,this.service3,this.service4];
 
   product1  = new Product("queen.jpg",1,"Bohemian Rhapsody",300,"Queen.",5,"Musica");
   product2  = new Product("myself.jpg",2,"Myself",200,"Post Malone.",4,"Musica");
@@ -36,12 +46,22 @@ export class AppComponent {
   constructor(){}
 
   ngOnInit(): void {
+    this.setServices();
     this.saveData();
+    
   }
 
   saveData(){
     localStorage.setItem('users', JSON.stringify(this.userlist))
     localStorage.setItem('music', JSON.stringify(this.productListMusic))
     localStorage.setItem('movies', JSON.stringify(this.productListMovies))
+    localStorage.setItem('subscriptions', JSON.stringify(this.subsList))
+  }
+
+  setServices(){
+    this.service1.setService(this.typeService1);
+    this.service2.setService(this.typeService2);
+    this.service3.setService(this.typeService3);
+    this.service4.setService(this.typeService4);
   }
 }

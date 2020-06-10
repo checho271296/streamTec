@@ -1,17 +1,13 @@
 import { Service } from './service.abstract';
 
 export class Vip extends Service{
-    idService: Number;
-    description : String;
-    price: Number;
-    constructor(idService: number,descrip : string, price : number){
+    idService: Number = 2;
+    description : string = "VIP(Música y Películas)";
+    price: Number = 15;
+    constructor(){
         super();
-        this.idService = idService,
-        this.description = descrip,
-        this.price = price
     };
-    printService(){
-        console.log(this.idService);
+    getDescription(): string{
         return this.description;
     }
 }

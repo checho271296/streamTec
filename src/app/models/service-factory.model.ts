@@ -7,29 +7,31 @@ import { OnDemand } from './on-demand.model';
 export class ServiceFactory {
     idUser : Number;
     subcriptionDate : Date;
+    service? : Service;
     
-    constructor(idUser : number, subsDate: Date){
+    constructor(idUser : Number, subsDate: Date){
        this.idUser = idUser,
        this.subcriptionDate  = subsDate 
     }
 
-    getShape(shapeType : number,descrip : string, price : number){
+    getShape(shapeType : Number){
         if(shapeType == null){
            return null;
         }		
         if(shapeType === 1){
-           return new Music(1,descrip, price );
-           
+         return new OnDemand();
         } else if(shapeType == 2){
-           return new Video(2,descrip, price);
-           
+         return new Vip();
         } else if(shapeType === 3){
-           return new Vip(3,descrip, price);
+         return new Music();
 
         } else if(shapeType === 4){
-            return new OnDemand(4,descrip);
+         return new Video();
          }
-        
         return null;
      };
+
+     setService(service : Service){
+        this.service = service;
+     }
 }

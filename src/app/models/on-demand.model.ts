@@ -1,15 +1,12 @@
 import { Service } from './service.abstract';
 
 export class OnDemand extends Service {
-    idService: Number;
-    description : String;
-    constructor(idService: number,descrip : string){
+    idService: Number = 1;
+    description : string = "Solo Demanda";
+    constructor(){
         super();
-        this.idService = idService,
-        this.description = descrip
     };
-    printService(){
-        console.log(this.idService);
+    getDescription(): string{
         return this.description;
     }
 }

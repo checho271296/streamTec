@@ -14,11 +14,14 @@ export class ProductsComponent implements OnInit {
   onDemandFlag = false;
   productListMusic : Array<Product> = [] ;
   productListMovies : Array<Product> = [] ;
+  productAdd : Array<Product> = [] ;
+  product : Product;
   constructor() { }
 
   ngOnInit(): void {
     this.chargeProducts();
     this.getData();
+    
   }
 
 
@@ -44,5 +47,19 @@ export class ProductsComponent implements OnInit {
 
   }
 
+  addtoPlaylist(nameSe: String){
+    let listMusic : Array<Product> = JSON.parse(localStorage.getItem("music"));
+    let listMovie :Array<Product> =  JSON.parse(localStorage.getItem("movies"));
+    Array.prototype.push.apply(listMusic,listMovie); 
+    console.log(listMusic)
+    this.product = listMusic.find( ({ name }) => name === nameSe );
+    if(this.product){
+
+      this.productAdd.push(this.product);
+    }else{
+
+      console.log(this.product)
+    }
   
+  }
 }

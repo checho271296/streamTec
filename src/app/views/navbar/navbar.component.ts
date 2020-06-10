@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../models/auth.service";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,14 +10,13 @@ import { AuthService } from "../../models/auth.service";
 export class NavbarComponent implements OnInit {
 
   idUser = "";
-  constructor(public authService: AuthService){
+  constructor(public authService: AuthService,private activatedRoute :ActivatedRoute){
     
   }
 
   ngOnInit(): void 
   {
     this.idUser = JSON.parse(localStorage.getItem("token"));
-    console.log("TOME",this.idUser)
   }
 
 }
