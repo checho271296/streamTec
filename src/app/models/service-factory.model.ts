@@ -3,6 +3,7 @@ import { Music } from './music.model';
 import { Video } from './video.model';
 import { Vip } from './vip.model';
 import { OnDemand } from './on-demand.model';
+import { User } from './user.model';
 
 export class ServiceFactory {
     idUser : Number;
@@ -33,5 +34,28 @@ export class ServiceFactory {
 
      setService(service : Service){
         this.service = service;
+     }
+
+     checkBirthday(date : Date){
+      var dateObj = new Date();
+      var date = new Date(date); 
+      var dayUser = date.getUTCDate();
+      var day = dateObj.getUTCDate();
+      if(dayUser === day){
+         return true
+      }
+      return false
+     }
+
+     checkMonthBirthday(date : Date){
+      var dateObj = new Date();
+      var date = new Date(date);
+      var monthUSer = date.getUTCMonth() + 1;
+      var month = dateObj.getUTCMonth() + 1; 
+      console.log("2",monthUSer,month)
+      if(monthUSer === month){
+         return true
+      }
+      return false
      }
 }
