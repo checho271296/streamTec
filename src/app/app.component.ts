@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { User } from './models/user.model';
 import { Product } from './models/product.model';
 import { ServiceFactory } from './models/service-factory.model';
+import { AuthService } from './models/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -43,12 +44,13 @@ export class AppComponent {
 
   productListMusic : Array<Product> = [this.product1,this.product2,this.product3,this.product4];
   productListMovies : Array<Product> = [this.product5,this.product6,this.product7,this.product8];
-  constructor(){}
+
+  flag = true;
+  constructor(public authService: AuthService){}
 
   ngOnInit(): void {
     this.setServices();
     this.saveData();
-    
   }
 
   saveData(){

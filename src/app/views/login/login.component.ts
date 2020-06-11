@@ -30,21 +30,25 @@ export class LoginComponent implements OnInit {
       if(this.person.password === this.loginUserData.password){
         if(this.person.subsType === 1){
           localStorage.setItem("subs","1");
+          localStorage.setItem('token',this.person.idUser.toString())
           this._router.navigate([`products/${this.person.idUser}`])
         }
         else if(this.person.subsType === 2){
           localStorage.setItem("subs","2");
+          localStorage.setItem('token',this.person.idUser.toString())
           this._router.navigate([`products/${this.person.idUser}`])
         }
         else if(this.person.subsType === 3){
           localStorage.setItem("subs","3");
+          localStorage.setItem('token',this.person.idUser.toString())
           this._router.navigate([`products/${this.person.idUser}`])
         }
         else if(this.person.subsType === 4){
           localStorage.setItem("subs","4");
+          localStorage.setItem('token',this.person.idUser.toString())
           this._router.navigate([`products/${this.person  .idUser}`])
         }
-        localStorage.setItem('token',this.person.idUser.toString())
+        
       }else{
         console.log("Error");
       }

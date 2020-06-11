@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
+import { Playlist } from 'src/app/models/playlist.model';
+import { ActivatedRoute } from '@angular/router';
+import { UserInventory } from 'src/app/models/user-inventory.model';
 
 @Component({
   selector: 'app-products',
@@ -8,6 +11,7 @@ import { Product } from 'src/app/models/product.model';
 })
 export class ProductsComponent implements OnInit {
 
+  date = new Date();
   vipFlag = false;
   musicFlag = false;
   videoFlag = false;
@@ -16,7 +20,10 @@ export class ProductsComponent implements OnInit {
   productListMovies : Array<Product> = [] ;
   productAdd : Array<Product> = [] ;
   product : Product;
-  constructor() { }
+  cloneable : Product;
+  playList : Playlist = new Playlist();
+  inventory : UserInventory = new UserInventory(this.date);
+  constructor(private activedRoute : ActivatedRoute) { }
 
   ngOnInit(): void {
     this.chargeProducts();
@@ -54,12 +61,38 @@ export class ProductsComponent implements OnInit {
     console.log(listMusic)
     this.product = listMusic.find( ({ name }) => name === nameSe );
     if(this.product){
-
       this.productAdd.push(this.product);
+      this.activedRoute.params.subscribe(params => {
+        let user = params['_id'];
+        this.playList.idUser = user;
+        this.playList.productList = this.productAdd;
+        console.log(this.playList,"PLAYLIST")
+      });
     }else{
 
-      console.log(this.product)
+      console.log("error")
     }
-  
+  }
+
+  addtoInventory(nameSe : String){
+    let listMusic : Array<Product> = JSON.parse(localStorage.getItem("music"));
+    let listMovie :Array<Product> =  JSON.parse(localStorage.getItem("movies"));
+    Array.prototype.push.apply(listMusic,listMovie);
+    this.product = listMusic.find( ({ name }) => name === nameSe );
+    //this.product.clone();
+    if(this.product){
+
+      this.productAdd.push(this.product);
+      this.activedRoute.params.subscribe(params => {
+        let user = params['_id'];
+        this.inventory.idUser = user;
+        this.inventory.products = this.productAdd;
+        console.log(this.inventory,"PLAYLIST")
+      });
+    }else{
+
+      console.log("erorr")
+    }
+
   }
 }

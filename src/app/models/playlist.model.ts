@@ -1,11 +1,9 @@
-import { AnyARecord } from 'dns';
+
 
 export class Playlist {
-    idUser: Number;
-    productList: Array<any>;
+    idUser: Number = 0;
+    productList: Array<any> = [];
 
-    constructor(idUser : number, productList : Array<any>){
-        this.idUser = idUser,
-        this.productList = productList
+    constructor(){
     };
 }
