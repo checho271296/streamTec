@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
     "password": "",
     "subsType" : 0
   };
-  
+  error = "";
   constructor(private _router: Router) {    
    } 
 
@@ -41,86 +41,61 @@ export class RegisterComponent implements OnInit {
       this.registerUserData.birth,
       this.registerUserData.subsType
       )
-    let newService : ServiceFactory = new ServiceFactory(i+1,this.date);
+    if(newUser.subsType === 1 || newUser.subsType === 2 || newUser.subsType === 3   || newUser.subsType === 4){
 
-    
-    var flagBirthday : Boolean;
-    flagBirthday = newService.checkBirthday(newUser.birthday);
-    var flagBirthdayMonth : Boolean;
-    flagBirthdayMonth = newService.checkMonthBirthday(newUser.birthday);
-    console.log(flagBirthday,flagBirthdayMonth,"BOOLEANS")
-    if( (flagBirthday === true) && (flagBirthdayMonth === true)){
+      let newService : ServiceFactory = new ServiceFactory(i+1,this.date);
+  
       
-      let service = newService.getShape(2);
-      newService.setService(service);
-      newUser.subsType = 2;
-      userlist.push(newUser)
-      serviceList.push(newService)
-      localStorage.setItem('usersN', JSON.stringify(userlist))
-      localStorage.setItem('subscriptionsN', JSON.stringify(serviceList))
-      localStorage.setItem('token',newUser.idUser.toString())
-      localStorage.setItem('tokenN',newUser.idUser.toString())
-      if(newUser.subsType === 1){
-        localStorage.setItem("subs","1");
-        this._router.navigate([`products/${newUser.idUser}`])
-      }
-      else if(newUser.subsType === 2){
-        localStorage.setItem("subs","2");
-        this._router.navigate([`products/${newUser.idUser}`])
-      }
-      else if(newUser.subsType === 3){
-        localStorage.setItem("subs","3");
-        this._router.navigate([`products/${newUser.idUser}`])
-      }
-      else if(newUser.subsType === 4){
-        localStorage.setItem("subs","4");
-        this._router.navigate([`products/${newUser.idUser}`])
-      }
-  // ------------------------------------------------------------------------/    
-    }else if(flagBirthdayMonth === true){
-      var productListMusic : Array<Product> = [] ;
-      var productListMovies : Array<Product> = [] ;
-      productListMovies = JSON.parse(localStorage.getItem("movies"));
-      productListMusic = JSON.parse(localStorage.getItem("music"));
-      for (var j = 0; j < productListMovies.length; j++) {
-        var priceOriginal:any  = productListMovies[j].price
-        productListMovies[j].price = (priceOriginal - (priceOriginal*0.5));
-      }
-      for (var n = 0; n < productListMusic.length; n++) {
-        var priceOriginal:any  = productListMusic[n].price
-        productListMusic[n].price = (priceOriginal - (priceOriginal*0.5));
-      }
-      let service = newService.getShape(newUser.subsType);
-      newService.setService(service);
-      localStorage.setItem('music', JSON.stringify(productListMusic))
-      localStorage.setItem('movies', JSON.stringify(productListMovies))
-      userlist.push(newUser)
-      serviceList.push(newService)
-      localStorage.setItem('usersN', JSON.stringify(userlist))
-      localStorage.setItem('subscriptionsN', JSON.stringify(serviceList))
-      localStorage.setItem('token',newUser.idUser.toString())
-      localStorage.setItem('tokenN',newUser.idUser.toString())
-      
-      if(newUser.subsType === 1){
-        localStorage.setItem("subs","1");
-        this._router.navigate([`products/${newUser.idUser}`])
-      }
-      else if(newUser.subsType === 2){
-        localStorage.setItem("subs","2");
-        this._router.navigate([`products/${newUser.idUser}`])
-      }
-      else if(newUser.subsType === 3){
-        localStorage.setItem("subs","3");
-        this._router.navigate([`products/${newUser.idUser}`])
-      }
-      else if(newUser.subsType === 4){
-        localStorage.setItem("subs","4");
-        this._router.navigate([`products/${newUser.idUser}`])
-      }
-       // ------------------------------------------------------------------------/  
-    }else{
+      var flagBirthday : Boolean;
+      flagBirthday = newService.checkBirthday(newUser.birthday);
+      var flagBirthdayMonth : Boolean;
+      flagBirthdayMonth = newService.checkMonthBirthday(newUser.birthday);
+      console.log(flagBirthday,flagBirthdayMonth,"BOOLEANS")
+      if( (flagBirthday === true) && (flagBirthdayMonth === true)){
+        
+        let service = newService.getShape(2);
+        newService.setService(service);
+        newUser.subsType = 2;
+        userlist.push(newUser)
+        serviceList.push(newService)
+        localStorage.setItem('usersN', JSON.stringify(userlist))
+        localStorage.setItem('subscriptionsN', JSON.stringify(serviceList))
+        localStorage.setItem('token',newUser.idUser.toString())
+        localStorage.setItem('tokenN',newUser.idUser.toString())
+        if(newUser.subsType === 1){
+          localStorage.setItem("subs","1");
+          this._router.navigate([`products/${newUser.idUser}`])
+        }
+        else if(newUser.subsType === 2){
+          localStorage.setItem("subs","2");
+          this._router.navigate([`products/${newUser.idUser}`])
+        }
+        else if(newUser.subsType === 3){
+          localStorage.setItem("subs","3");
+          this._router.navigate([`products/${newUser.idUser}`])
+        }
+        else if(newUser.subsType === 4){
+          localStorage.setItem("subs","4");
+          this._router.navigate([`products/${newUser.idUser}`])
+        }
+    // ------------------------------------------------------------------------/    
+      }else if(flagBirthdayMonth === true){
+        var productListMusic : Array<Product> = [] ;
+        var productListMovies : Array<Product> = [] ;
+        productListMovies = JSON.parse(localStorage.getItem("movies"));
+        productListMusic = JSON.parse(localStorage.getItem("music"));
+        for (var j = 0; j < productListMovies.length; j++) {
+          var priceOriginal:any  = productListMovies[j].price
+          productListMovies[j].price = (priceOriginal - (priceOriginal*0.5));
+        }
+        for (var n = 0; n < productListMusic.length; n++) {
+          var priceOriginal:any  = productListMusic[n].price
+          productListMusic[n].price = (priceOriginal - (priceOriginal*0.5));
+        }
         let service = newService.getShape(newUser.subsType);
         newService.setService(service);
+        localStorage.setItem('music', JSON.stringify(productListMusic))
+        localStorage.setItem('movies', JSON.stringify(productListMovies))
         userlist.push(newUser)
         serviceList.push(newService)
         localStorage.setItem('usersN', JSON.stringify(userlist))
@@ -144,7 +119,38 @@ export class RegisterComponent implements OnInit {
           localStorage.setItem("subs","4");
           this._router.navigate([`products/${newUser.idUser}`])
         }
-        
+         // ------------------------------------------------------------------------/  
+      }else{
+          let service = newService.getShape(newUser.subsType);
+          newService.setService(service);
+          userlist.push(newUser)
+          serviceList.push(newService)
+          localStorage.setItem('usersN', JSON.stringify(userlist))
+          localStorage.setItem('subscriptionsN', JSON.stringify(serviceList))
+          localStorage.setItem('token',newUser.idUser.toString())
+          localStorage.setItem('tokenN',newUser.idUser.toString())
+          
+          if(newUser.subsType === 1){
+            localStorage.setItem("subs","1");
+            this._router.navigate([`products/${newUser.idUser}`])
+          }
+          else if(newUser.subsType === 2){
+            localStorage.setItem("subs","2");
+            this._router.navigate([`products/${newUser.idUser}`])
+          }
+          else if(newUser.subsType === 3){
+            localStorage.setItem("subs","3");
+            this._router.navigate([`products/${newUser.idUser}`])
+          }
+          else if(newUser.subsType === 4){
+            localStorage.setItem("subs","4");
+            this._router.navigate([`products/${newUser.idUser}`])
+          }
+          
+      }
+    }else{
+      this.error = "El tipo de subscripción debe ser 1,2,3 ó 4!"
+      console.log(this.error)
     }
   }
 

@@ -1,10 +1,10 @@
 <div class="row pt-5">
     <div class="col-md-6 mx-auto">
         <div class="card rounded-0">
-            <div class="card-header">
+            <div class="card-header" style="background-color: #5C6B73;">
                 <h3 class="mb-0">Registrarse</h3>
             </div>
-            <div class="card-body">
+            <div class="card-body" style="background-color: #9DB4C0;">
                 <form  class="form">
                     <div class="form-group">
                         <label for ="">Nombre</label>
@@ -32,8 +32,8 @@
                         <input [(ngModel)] ="registerUserData.subsType"  name="subsType"  type="number" class="form-control rounded-0" required>
                     </div>
                     
-                    <button  type ="button" class="btn btn-primary float-right ml-3" (click) = "registerUser()">Registrarse</button>
-                    
+                    <button  type ="button" class="btn btn-success float-right ml-3" (click) = "registerUser()">Registrarse</button>
+                    <p class="text-danger">{{error}}</p>
                 </form>
             </div>
         </div>

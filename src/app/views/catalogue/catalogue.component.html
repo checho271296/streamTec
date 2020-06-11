@@ -1,28 +1,28 @@
 <app-carousel></app-carousel>
-  <section class="jumbotron text-center ">
+  <section class="jumbotron text-center " style="background-color: #5C6B73;">
     <div class="container">
-      <h1 class="jumbotron-heading">Escoge tu subcripción para iniciar</h1>
-      <p class="lead text-muted">Puedes hacer la compra tanto de películas como canciones, simplemente registrate con el tipo "Bajo Demanda" y listo.</p>
+      <h1 class="jumbotron-heading text-light">Escoge tu subcripción para iniciar</h1>
+      <p class="lead  text-light">Puedes hacer la compra tanto de películas como canciones, simplemente registrate con el tipo "Bajo Demanda" y listo.</p>
       <p>
-        <a href="#" class="btn btn-primary my-2">Registrarse</a>
+        <a href="#" class="btn btn-primary my-2 text-light" routerLink= '/register'>Registrarse</a>
         
       </p>
     </div>
   </section>
 <div class="container mb-5 mt-5">
-    <h1 class="text-center">Catalogo principal</h1>
+    <h1 class="text-center text-dark">Catalogo principal</h1>
     <div class="row mt-5 d-flex justify-content-center">  
         <div class="col-12 mt-5">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
+                    <div class="card" style="background-color: #9DB4C0;">
+                        <div class="card-header text-dark">
                           Música
                         </div>
-                    <div class="card-body" >
-                          <h5 class="card-title">Descubre la música que deseas:</h5>
-                          <div class="card-group"   >
-                              <div class="card pr-4" style="width: 10rem;" *ngFor="let music of productListMusic">
+                    <div class="card-body" style="background-color: #C2DFE3;" >
+                          <h5 class="card-title text-dark">Descubre la música que deseas:</h5>
+                          <div class="card-group" style="background-color: #E0FBFC;"  >
+                              <div class="card pr-4" style="width: 10rem;background-color: #E0FBFC;" *ngFor="let music of productListMusic">
                                   <img src="../../../assets/images/{{music.image}}" class="card-img-top" style="width: 150px; height: 150px;" >
                                   <div class="card-body">
                                       <h5 class="card-title">{{music.name}}</h5>
@@ -37,14 +37,14 @@
             </div>
             <div class="row mt-5">
                 <div class="col-12 ">
-                    <div class="card">
-                        <div class="card-header">
+                    <div class="card" style="background-color: #9DB4C0;">
+                        <div class="card-header text-dark">
                           Películas
                         </div>
-                        <div class="card-body">
-                          <h5 class="card-title">Increíbles Peliculas para todos los gustos:</h5>
+                        <div class="card-body" style="background-color: #C2DFE3;">
+                          <h5 class="card-title text-dark">Increíbles Peliculas para todos los gustos:</h5>
                           <div class="card-group" >
-                              <div class="card pr-4" style="width: 10rem;" *ngFor="let movie of productListMovies">
+                              <div class="card pr-4" style="width: 10rem;background-color: #E0FBFC;" *ngFor="let movie of productListMovies">
                                 <img src="../../../assets/images/{{movie.image}}" class="card-img-top" style="width: 150px; height: 150px;">
                                 <div class="card-body">
                                     <h5 class="card-title">{{movie.name}}</h5>

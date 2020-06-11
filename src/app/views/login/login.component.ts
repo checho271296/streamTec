@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   userlist : Array<User> ;
   loginUserData = {"email": "","password": ""};
   person : User;
+  error = "";
   constructor(private _router: Router) { 
   }
   
@@ -54,11 +55,12 @@ export class LoginComponent implements OnInit {
           }
           
         }else{
-          console.log("Error");
+          this.error = "Usuario o Contraseña incorrectos!"
+          
         }
       }
       else{
-        console.log("Error");
+        this.error = "Usuario o Contraseña incorrectos!"
       }
     }else{
 

@@ -1,22 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg  " style="background-color: #253237; ">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-            <a  *ngIf="!authService.loggedIn()"  class="nav-link" routerLink= '/'>Inicio</a>
+            <a  *ngIf="!authService.loggedIn()"  class="nav-link text-light" routerLink= '/'>Inicio</a>
         </li>
         <li class="nav-item">
-            <a *ngIf="!authService.loggedIn()" class="nav-link" routerLink= 'register'>Registrarse</a>
+            <a *ngIf="!authService.loggedIn()" class="nav-link text-light" routerLink= 'register'>Registrarse</a>
         </li>
         <li class="nav-item">
-            <a *ngIf="authService.loggedIn()" class="nav-link" routerLink= 'userProfile/{{aux()}}' (click)= "aux()">Mi Perfil</a>
+            <a *ngIf="authService.loggedIn()" class="nav-link text-light" routerLink= 'userProfile/{{aux()}}' (click)= "aux()">Mi Perfil</a>
         </li>
         <li class="nav-item">
-            <a *ngIf="authService.loggedIn()" class="nav-link" routerLink= 'products/{{aux()}}' (click)= "aux()">Mis productos</a>
+            <a *ngIf="authService.loggedIn()" class="nav-link text-light" routerLink= 'products/{{aux()}}' (click)= "aux()">Mis productos</a>
         </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-        <button *ngIf="!authService.loggedIn()" class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink = 'login'>Iniciar Sesión</button>
-        <button *ngIf="authService.loggedIn()" class="btn btn-outline-danger my-2 my-sm-0" type="submit" (click)= "authService.logoutUser()">Cerrar Sesión</button>
+        <button *ngIf="!authService.loggedIn()" class="btn btn-outline-success my-2 my-sm-0 text-light" type="submit" routerLink = 'login'>Iniciar Sesión</button>
+        <button *ngIf="authService.loggedIn()" class="btn btn-outline-danger my-2 my-sm-0 text-light" type="submit" (click)= "authService.logoutUser()">Cerrar Sesión</button>
         </form>
     </div>
 </nav>
