@@ -47,19 +47,14 @@ export class AppComponent {
 
   flag = true;
   constructor(public authService: AuthService){
-    this.service1.setService(this.typeService1);
-    this.service2.setService(this.typeService2);
-    this.service3.setService(this.typeService3);
-    this.service4.setService(this.typeService4);
-    localStorage.setItem('users', JSON.stringify(this.userlist))
-    localStorage.setItem('music', JSON.stringify(this.productListMusic))
-    localStorage.setItem('movies', JSON.stringify(this.productListMovies))
-    localStorage.setItem('subscriptions', JSON.stringify(this.subsList))
+
   }
 
   ngOnInit(): void {
-    // this.setServices();
-    // this.saveData();
+    if(this.flag){
+      this.setServices();
+      this.saveData();
+    }
   }
 
   saveData(){
@@ -67,6 +62,7 @@ export class AppComponent {
     localStorage.setItem('music', JSON.stringify(this.productListMusic))
     localStorage.setItem('movies', JSON.stringify(this.productListMovies))
     localStorage.setItem('subscriptions', JSON.stringify(this.subsList))
+    this.flag = !this.flag
   }
 
   setServices(){

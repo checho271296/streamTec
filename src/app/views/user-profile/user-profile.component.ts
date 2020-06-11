@@ -39,21 +39,44 @@ export class UserProfileComponent implements OnInit {
  }
 
   setInfo(){
-    let userlist : Array<User> = JSON.parse(localStorage.getItem("users"));
-    let subsList : Array<ServiceFactory> = JSON.parse(localStorage.getItem("subscriptions"));
-    this.activatedRoute.params.subscribe(params =>{ 
-      let user = params['_id'];
-      this.person = userlist.find( ({ idUser }) => idUser === Number(user) );
-      this.service = subsList.find( ({ idUser }) => idUser === Number(user) );
-      this.registerUserData.name = this.person.name;
-      this.registerUserData.lastname = this.person.lastname;
-      this.registerUserData.birthday = this.person.birthday;
-      this.registerUserData.email = this.person.email;
-      this.registerUserData.subsDescrip = this.service.service['description'];
-      this.registerUserData.subsDate = this.service.subcriptionDate;
-      var dt = new Date();
-      this.registerUserData.subsDateEnd =  this.add_months(dt, 1); 
-    });
+    let userlist : Array<User> = JSON.parse(localStorage.getItem("usersN"));
+    let subsList : Array<ServiceFactory> = JSON.parse(localStorage.getItem("subscriptionsN"));
+    if(userlist != null){
+
+      this.activatedRoute.params.subscribe(params =>{ 
+        let user = params['_id'];
+        this.person = userlist.find( ({ idUser }) => idUser === Number(user) );
+        this.service = subsList.find( ({ idUser }) => idUser === Number(user) );
+        console.log(this.service,"SERVICE")
+        this.registerUserData.name = this.person.name;
+        this.registerUserData.lastname = this.person.lastname;
+        this.registerUserData.birthday = this.person.birthday;
+        this.registerUserData.email = this.person.email;
+        this.registerUserData.subsDescrip = this.service.service['description'];
+        this.registerUserData.subsDate = this.service.subcriptionDate;
+        var dt = new Date();
+        this.registerUserData.subsDateEnd =  this.add_months(dt, 1); 
+      });
+    } else{
+      let userlist : Array<User> = JSON.parse(localStorage.getItem("users"));
+      let subsList : Array<ServiceFactory> = JSON.parse(localStorage.getItem("subscriptions"));
+      this.activatedRoute.params.subscribe(params =>{ 
+        let user = params['_id'];
+        this.person = userlist.find( ({ idUser }) => idUser === Number(user) );
+        this.service = subsList.find( ({ idUser }) => idUser === Number(user) );
+        console.log(this.service,"SERVICE")
+        this.registerUserData.name = this.person.name;
+        this.registerUserData.lastname = this.person.lastname;
+        this.registerUserData.birthday = this.person.birthday;
+        this.registerUserData.email = this.person.email;
+        this.registerUserData.subsDescrip = this.service.service['description'];
+        this.registerUserData.subsDate = this.service.subcriptionDate;
+        var dt = new Date();
+        this.registerUserData.subsDateEnd =  this.add_months(dt, 1); 
+      });
+    }
+      
+   
 
   }
 

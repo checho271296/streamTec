@@ -23,39 +23,83 @@ export class LoginComponent implements OnInit {
   }
 
   logIn(){
+    this.userlist = JSON.parse(localStorage.getItem("usersN"));
+    if(this.userlist != null){
+      this.person = this.userlist.find( ({ email }) => email === this.loginUserData.email );
+      if(this.person){
+        if(this.person.password === this.loginUserData.password){
+          if(this.person.subsType === 1){
+            localStorage.setItem("subs","1");
+            localStorage.setItem('token',this.person.idUser.toString())
+            localStorage.setItem('tokenN',this.person.idUser.toString())
+            this._router.navigate([`products/${this.person.idUser}`])
+          }
+          else if(this.person.subsType === 2){
+            localStorage.setItem("subs","2");
+            localStorage.setItem('token',this.person.idUser.toString())
+            localStorage.setItem('tokenN',this.person.idUser.toString())
+            this._router.navigate([`products/${this.person.idUser}`])
+          }
+          else if(this.person.subsType === 3){
+            localStorage.setItem("subs","3");
+            localStorage.setItem('token',this.person.idUser.toString())
+            localStorage.setItem('tokenN',this.person.idUser.toString())
+            this._router.navigate([`products/${this.person.idUser}`])
+          }
+          else if(this.person.subsType === 4){
+            localStorage.setItem("subs","4");
+            localStorage.setItem('token',this.person.idUser.toString())
+            localStorage.setItem('tokenN',this.person.idUser.toString())
+            this._router.navigate([`products/${this.person  .idUser}`])
+          }
+          
+        }else{
+          console.log("Error");
+        }
+      }
+      else{
+        console.log("Error");
+      }
+    }else{
 
-    this.userlist = JSON.parse(localStorage.getItem("users"));
-    this.person = this.userlist.find( ({ email }) => email === this.loginUserData.email );
-    if(this.person){
-      if(this.person.password === this.loginUserData.password){
-        if(this.person.subsType === 1){
-          localStorage.setItem("subs","1");
-          localStorage.setItem('token',this.person.idUser.toString())
-          this._router.navigate([`products/${this.person.idUser}`])
+      this.userlist = JSON.parse(localStorage.getItem("users"));
+      this.person = this.userlist.find( ({ email }) => email === this.loginUserData.email );
+      if(this.person){
+        if(this.person.password === this.loginUserData.password){
+          if(this.person.subsType === 1){
+            localStorage.setItem("subs","1");
+            localStorage.setItem('token',this.person.idUser.toString())
+            localStorage.setItem('tokenN',this.person.idUser.toString())
+            this._router.navigate([`products/${this.person.idUser}`])
+          }
+          else if(this.person.subsType === 2){
+            localStorage.setItem("subs","2");
+            localStorage.setItem('token',this.person.idUser.toString())
+            localStorage.setItem('tokenN',this.person.idUser.toString())
+            this._router.navigate([`products/${this.person.idUser}`])
+          }
+          else if(this.person.subsType === 3){
+            localStorage.setItem("subs","3");
+            localStorage.setItem('token',this.person.idUser.toString())
+            localStorage.setItem('tokenN',this.person.idUser.toString())
+            this._router.navigate([`products/${this.person.idUser}`])
+          }
+          else if(this.person.subsType === 4){
+            localStorage.setItem("subs","4");
+            localStorage.setItem('token',this.person.idUser.toString())
+            localStorage.setItem('tokenN',this.person.idUser.toString())
+            this._router.navigate([`products/${this.person  .idUser}`])
+          }
+          
+        }else{
+          console.log("Error");
         }
-        else if(this.person.subsType === 2){
-          localStorage.setItem("subs","2");
-          localStorage.setItem('token',this.person.idUser.toString())
-          this._router.navigate([`products/${this.person.idUser}`])
-        }
-        else if(this.person.subsType === 3){
-          localStorage.setItem("subs","3");
-          localStorage.setItem('token',this.person.idUser.toString())
-          this._router.navigate([`products/${this.person.idUser}`])
-        }
-        else if(this.person.subsType === 4){
-          localStorage.setItem("subs","4");
-          localStorage.setItem('token',this.person.idUser.toString())
-          this._router.navigate([`products/${this.person  .idUser}`])
-        }
-        
-      }else{
+      }
+      else{
         console.log("Error");
       }
     }
-    else{
-      console.log("Error");
-    }
+   
    
   }
   

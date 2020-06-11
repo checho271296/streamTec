@@ -56,9 +56,10 @@ export class RegisterComponent implements OnInit {
       newUser.subsType = 2;
       userlist.push(newUser)
       serviceList.push(newService)
-      localStorage.setItem('users', JSON.stringify(userlist))
-      localStorage.setItem('subscriptions', JSON.stringify(serviceList))
+      localStorage.setItem('usersN', JSON.stringify(userlist))
+      localStorage.setItem('subscriptionsN', JSON.stringify(serviceList))
       localStorage.setItem('token',newUser.idUser.toString())
+      localStorage.setItem('tokenN',newUser.idUser.toString())
       if(newUser.subsType === 1){
         localStorage.setItem("subs","1");
         this._router.navigate([`products/${newUser.idUser}`])
@@ -89,15 +90,17 @@ export class RegisterComponent implements OnInit {
         var priceOriginal:any  = productListMusic[n].price
         productListMusic[n].price = (priceOriginal - (priceOriginal*0.5));
       }
+      let service = newService.getShape(newUser.subsType);
+      newService.setService(service);
       localStorage.setItem('music', JSON.stringify(productListMusic))
       localStorage.setItem('movies', JSON.stringify(productListMovies))
       userlist.push(newUser)
       serviceList.push(newService)
-      localStorage.setItem('users', JSON.stringify(userlist))
-      localStorage.setItem('subscriptions', JSON.stringify(serviceList))
+      localStorage.setItem('usersN', JSON.stringify(userlist))
+      localStorage.setItem('subscriptionsN', JSON.stringify(serviceList))
       localStorage.setItem('token',newUser.idUser.toString())
-      let service = newService.getShape(newUser.subsType);
-      newService.setService(service);
+      localStorage.setItem('tokenN',newUser.idUser.toString())
+      
       if(newUser.subsType === 1){
         localStorage.setItem("subs","1");
         this._router.navigate([`products/${newUser.idUser}`])
@@ -116,13 +119,15 @@ export class RegisterComponent implements OnInit {
       }
        // ------------------------------------------------------------------------/  
     }else{
-        userlist.push(newUser)
-        serviceList.push(newService)
-        localStorage.setItem('users', JSON.stringify(userlist))
-        localStorage.setItem('subscriptions', JSON.stringify(serviceList))
-        localStorage.setItem('token',newUser.idUser.toString())
         let service = newService.getShape(newUser.subsType);
         newService.setService(service);
+        userlist.push(newUser)
+        serviceList.push(newService)
+        localStorage.setItem('usersN', JSON.stringify(userlist))
+        localStorage.setItem('subscriptionsN', JSON.stringify(serviceList))
+        localStorage.setItem('token',newUser.idUser.toString())
+        localStorage.setItem('tokenN',newUser.idUser.toString())
+        
         if(newUser.subsType === 1){
           localStorage.setItem("subs","1");
           this._router.navigate([`products/${newUser.idUser}`])

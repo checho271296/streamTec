@@ -8,10 +8,10 @@
             <a *ngIf="!authService.loggedIn()" class="nav-link" routerLink= 'register'>Registrarse</a>
         </li>
         <li class="nav-item">
-            <a *ngIf="authService.loggedIn()" class="nav-link" routerLink= 'userProfile/{{idUser}}'>Mi Perfil</a>
+            <a *ngIf="authService.loggedIn()" class="nav-link" routerLink= 'userProfile/{{aux()}}' (click)= "aux()">Mi Perfil</a>
         </li>
         <li class="nav-item">
-            <a *ngIf="authService.loggedIn()" class="nav-link" routerLink= 'products/{{idUser}}'>Mis productos</a>
+            <a *ngIf="authService.loggedIn()" class="nav-link" routerLink= 'products/{{aux()}}' (click)= "aux()">Mis productos</a>
         </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
