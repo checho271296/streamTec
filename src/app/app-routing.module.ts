@@ -11,7 +11,7 @@ import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   {
     path : '',
-    redirectTo :'/home',
+    component: CatalogueComponent,
     pathMatch : 'full'
   },
   {
