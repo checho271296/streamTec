@@ -50,8 +50,6 @@ export class RegisterComponent implements OnInit {
       flagBirthday = newService.checkBirthday(newUser.birthday);
       var flagBirthdayMonth : Boolean;
       flagBirthdayMonth = newService.checkMonthBirthday(newUser.birthday);
-      console.log(newUser.birthday,"USERRRRR")
-      console.log(flagBirthday,flagBirthdayMonth,"BOOLEANS")
       if( (flagBirthday === true) && (flagBirthdayMonth === true)){
         
         let service = newService.getShape(2);
@@ -151,7 +149,7 @@ export class RegisterComponent implements OnInit {
       }
     }else{
       this.error = "El tipo de subscripción debe ser 1,2,3 ó 4!"
-      console.log(this.error)
+
     }
   }
 

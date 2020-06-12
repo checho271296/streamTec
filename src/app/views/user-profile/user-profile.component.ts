@@ -47,7 +47,6 @@ export class UserProfileComponent implements OnInit {
         let user = params['_id'];
         this.person = userlist.find( ({ idUser }) => idUser === Number(user) );
         this.service = subsList.find( ({ idUser }) => idUser === Number(user) );
-        console.log(this.service,"SERVICE")
         this.registerUserData.name = this.person.name;
         this.registerUserData.lastname = this.person.lastname;
         this.registerUserData.birthday = this.person.birthday;
@@ -64,7 +63,6 @@ export class UserProfileComponent implements OnInit {
         let user = params['_id'];
         this.person = userlist.find( ({ idUser }) => idUser === Number(user) );
         this.service = subsList.find( ({ idUser }) => idUser === Number(user) );
-        console.log(this.service,"SERVICE")
         this.registerUserData.name = this.person.name;
         this.registerUserData.lastname = this.person.lastname;
         this.registerUserData.birthday = this.person.birthday;

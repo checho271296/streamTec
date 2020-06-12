@@ -26,11 +26,9 @@ export class NavbarComponent implements OnInit {
     });
     this.idUser = JSON.parse(localStorage.getItem("tokenN"));
     if(this.idUser === null){
-      console.log(this.idUser,this.idUserAux,"PRUEBA ID USER 1")
       return this.idUser = JSON.parse(localStorage.getItem("token"));
       
     }else{
-      console.log(this.idUser,this.idUserAux,"PRUEBA ID USER 2")
       return this.idUser = JSON.parse(localStorage.getItem("tokenN"));
     }
     

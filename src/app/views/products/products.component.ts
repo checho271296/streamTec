@@ -58,7 +58,7 @@ export class ProductsComponent implements OnInit {
     let listMusic : Array<Product> = JSON.parse(localStorage.getItem("music"));
     let listMovie :Array<Product> =  JSON.parse(localStorage.getItem("movies"));
     Array.prototype.push.apply(listMusic,listMovie); 
-    console.log(listMusic)
+
     this.product = listMusic.find( ({ name }) => name === nameSe );
     if(this.product){
       this.productAdd.push(this.product);
@@ -66,7 +66,6 @@ export class ProductsComponent implements OnInit {
         let user = params['_id'];
         this.playList.idUser = user;
         this.playList.productList = this.productAdd;
-        console.log(this.playList,"PLAYLIST")
       });
     }else{
 
@@ -87,7 +86,6 @@ export class ProductsComponent implements OnInit {
         let user = params['_id'];
         this.inventory.idUser = user;
         this.inventory.products = this.productAdd;
-        console.log(this.inventory,"PLAYLIST")
       });
     }else{
 
