@@ -50,6 +50,7 @@ export class RegisterComponent implements OnInit {
       flagBirthday = newService.checkBirthday(newUser.birthday);
       var flagBirthdayMonth : Boolean;
       flagBirthdayMonth = newService.checkMonthBirthday(newUser.birthday);
+      console.log(newUser.birthday,"USERRRRR")
       console.log(flagBirthday,flagBirthdayMonth,"BOOLEANS")
       if( (flagBirthday === true) && (flagBirthdayMonth === true)){
         

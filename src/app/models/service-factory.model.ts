@@ -40,7 +40,8 @@ export class ServiceFactory {
       var dateObj = new Date();
       var date = new Date(date); 
       var dayUser = date.getUTCDate();
-      var day = dateObj.getUTCDate();
+      var day = dateObj.getUTCDate()-6;
+      console.log(day,dayUser,"11111111111111111")
       if(dayUser === day){
          return true
       }
@@ -52,7 +53,7 @@ export class ServiceFactory {
       var date = new Date(date);
       var monthUSer = date.getUTCMonth() + 1;
       var month = dateObj.getUTCMonth() + 1; 
-      console.log("2",monthUSer,month)
+      console.log("2222222222222222222222",monthUSer,month)
       if(monthUSer === month){
          return true
       }
